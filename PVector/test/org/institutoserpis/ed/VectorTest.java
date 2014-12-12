@@ -34,5 +34,42 @@ public class VectorTest {
 		assertEquals(-1, Vector.indexOf(v, 12));
 		
 	}
+	
+	@Test
+	public void testSelectionSort() {
+		int[] v;
+		//v desordenado
+		v = new int[] {12, 33, 16, 15, 7};
+		Vector.selectionSort(v);
+		assertArrayEquals(new int[]{7, 12, 15, 16, 33}, v);
+		//v ordenado ascendentemente
+		v = new int[]{7, 12, 15, 16, 33};
+		Vector.selectionSort(v);
+		assertArrayEquals(new int[]{7, 12, 15, 16, 33}, v);
+		//v ordenado descendentemente
+		v = new int[]{33, 16, 15, 12, 7};
+		Vector.selectionSort(v);
+		assertArrayEquals(new int[]{7, 12, 15, 16, 33}, v);
+
+		//v desordenado con repetidos
+		v = new int[] {12, 33, 7, 15, 7};
+		Vector.selectionSort(v);
+		assertArrayEquals(new int[]{7, 7, 12, 15, 33}, v);
+		//v ordenado ascendentemente con repetidos
+		v = new int[]{7, 7, 12, 15, 33};
+		Vector.selectionSort(v);
+		assertArrayEquals(new int[]{7, 7, 12, 15, 33}, v);
+		//v ordenado descendentemente con repetidos
+		v = new int[]{33, 15, 12, 7, 7};
+		Vector.selectionSort(v);
+		assertArrayEquals(new int[]{7, 7, 12, 15, 33}, v);
+	}
+
+	@Test
+	public void testSelectionSortEmpty() {
+		int[] v = new int[]{};
+		Vector.selectionSort(v);
+		assertArrayEquals(new int[]{}, v);
+	}
 
 }

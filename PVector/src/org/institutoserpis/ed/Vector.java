@@ -22,6 +22,19 @@ public class Vector {
 		
 	}
 	
+	public static void selectionSort(int[] v) {
+		for (int indexItem = 0; indexItem < v.length - 1; indexItem++) {
+			int indexMin = indexItem;
+			for (int index = indexMin + 1; index < v.length; index++)
+				if (v[index] < v[indexMin])
+					indexMin = index;
+			int aux = v[indexItem];
+			v[indexItem] = v[indexMin];
+			v[indexMin] = aux;
+		}
+			
+	}
+	
 	public static int min(int[] v) {
 		int minValue = v[0];
 		for (int index = 1; index < v.length; index++)
